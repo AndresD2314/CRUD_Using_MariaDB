@@ -2,11 +2,13 @@ package com.example.Logica;
 
 import java.sql.*;
 
+import com.example.Interfaces.EstudianteDAOInterface;
 import com.example.Model.Estudiante;
 
-public class EstudianteDAO 
+public class EstudianteDAO implements  EstudianteDAOInterface
 {
-    public static boolean agregarEstudiante(Estudiante estudiante)     
+    @Override
+    public boolean agregarEstudiante(Estudiante estudiante)     
     {
         try 
         {
@@ -47,7 +49,8 @@ public class EstudianteDAO
         return false;
     }
 
-    public static boolean eliminarEstudiante(Estudiante estudiante) 
+    @Override
+    public boolean eliminarEstudiante(Estudiante estudiante) 
     {
         try 
         {
@@ -92,7 +95,8 @@ public class EstudianteDAO
         return false;
     }
 
-    public static boolean modificarEstudiante (Estudiante estudiante, Estudiante estudiante_actualizado)
+    @Override
+    public boolean modificarEstudiante (Estudiante estudiante, Estudiante estudiante_actualizado)
     {
         try
         {
@@ -138,7 +142,8 @@ public class EstudianteDAO
         return false;
     }
 
-    public static void leerEstudiantes ()
+    @Override
+    public void leerEstudiantes ()
     {
         try
         {

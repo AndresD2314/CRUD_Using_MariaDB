@@ -28,6 +28,7 @@ public class App
                 case 1 :
                 {
                     Estudiante estudiante = new Estudiante();
+                    EstudianteDAO dao = new EstudianteDAO();
                     System.out.println("Ingrese nombre del estudiante a agregar: ");
                     estudiante.setNombre(sc.next());
                     System.out.println("Ingrese la edad del estudiante: ");
@@ -35,7 +36,7 @@ public class App
                     System.out.println("Ingrese la carrera del estudiante: ");
                     estudiante.setCarrera(sc.next());
                     
-                    boolean agregado = EstudianteDAO.agregarEstudiante(estudiante);
+                    boolean agregado = dao.agregarEstudiante(estudiante);
 
                     if (agregado)
                         System.out.println("Se agrego correctamente el estudiante en la base de datos!");
@@ -47,6 +48,7 @@ public class App
                 case 2:
                 {
                     Estudiante estudiante = new Estudiante();
+                    EstudianteDAO dao = new EstudianteDAO();
                     System.out.println("Ingrese nombre del estudiante a eliminar: ");
                     estudiante.setNombre(sc.next());
                     System.out.println("Ingrese la edad del estudiante: ");
@@ -54,7 +56,7 @@ public class App
                     System.out.println("Ingrese la carrera del estudiante: ");
                     estudiante.setCarrera(sc.next());
 
-                    boolean eliminado = EstudianteDAO.eliminarEstudiante(estudiante);
+                    boolean eliminado = dao.eliminarEstudiante(estudiante);
 
                     if (eliminado)
                         System.out.println("Se elimino correctamente el estudiante en la base de datos!");
@@ -66,6 +68,7 @@ public class App
                 case 3:
                 {   
                     Estudiante estudiante = new Estudiante();
+                    EstudianteDAO dao = new EstudianteDAO();
                     System.out.println("Ingrese datos del estudiante que quiere modificar: ");
                     System.out.println("Nombre del estudiante: ");
                     estudiante.setNombre(sc.next());
@@ -82,8 +85,8 @@ public class App
                     estudiante_actualizado.setEdad(sc.nextInt());
                     System.out.println("Carrera del estudiante: ");
                     estudiante_actualizado.setCarrera(sc.next());
-
-                    boolean actualizado = EstudianteDAO.modificarEstudiante(estudiante, estudiante_actualizado);
+                    
+                    boolean actualizado = dao.modificarEstudiante(estudiante, estudiante_actualizado);
 
                     if (actualizado)
                         System.out.println("Se actualizo el estudiante en la base de datos!");
@@ -94,7 +97,8 @@ public class App
                 }
                 case 4:
                 {
-                    EstudianteDAO.leerEstudiantes();
+                    EstudianteDAO dao = new EstudianteDAO();
+                    dao.leerEstudiantes();
                     break;
                 }
             }
